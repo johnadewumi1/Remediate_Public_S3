@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation template for s3 bucket
+Resources:
+  S3Bucket1:
+    Type: 'AWS::S3::Bucket'
+    Description: Creating Amazon S3 bucket from CloudFormation
+    Properties:
+      BucketName: jahmaiade11
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+
+  S3Bucket2:
+    Type: 'AWS::S3::Bucket'
+    Description: Creating Amazon S3 bucket from CloudFormation
+    Properties:
+      BucketName: jahmaiade22
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+
+  S3Bucket3:
+    Type: 'AWS::S3::Bucket'
+    Description: Creating Amazon S3 bucket from CloudFormation
+    Properties:
+      BucketName: jahmaiade33
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+
+  S3Bucket4:
+    Type: 'AWS::S3::Bucket'
+    Description: Creating Amazon S3 bucket from CloudFormation
+    Properties:
+      BucketName: jahmaiade44
+      AccessControl: Private
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled

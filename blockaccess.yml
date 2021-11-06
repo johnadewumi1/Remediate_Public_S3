@@ -1,0 +1,98 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "CloudFormation template to deploy a congid rulw that blocks all Public S3 bucket in my account and also crete sns topic for notification delivery"
+Parameters:
+  TopicName:
+    Type: String
+    Description:  Topic Name
+    Default: compliancenotofication
+Resources:
+  ConfigRule:
+    Type: "AWS::Config::ConfigRule"
+    Properties:
+      ConfigRuleName: "s3-bucket-level-public-access-prohibited"
+      Scope:
+        ComplianceResourceTypes:
+          - "AWS::S3::Bucket"
+      Description: "A Config rule that checks whether the required public access block settings are configured from account level. The rule is only NON_COMPLIANT when the fields set below do not match the corresponding fields in the configuration item."
+      Source:
+        Owner: "AWS"
+        SourceIdentifier: "S3_BUCKET_LEVEL_PUBLIC_ACCESS_PROHIBITED"
+  RemediationForConfigRule:
+    Type: "AWS::Config::RemediationConfiguration"
+    Properties:
+      Automatic: true
+      ConfigRuleName:
+        Ref: "ConfigRule"
+      MaximumAutomaticAttempts: 5
+      RetryAttemptSeconds: 60
+      TargetId: AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock
+      TargetType: "SSM_DOCUMENT"
+      TargetVersion: "1"
+      Parameters:
+        AutomationAssumeRole:
+          StaticValue:
+            Values:
+              - Fn::GetAtt:
+                  - "AutoRemediationIamRole"
+                  - "Arn"
+        BucketName:
+          ResourceValue:
+            Value: "RESOURCE_ID"
+  AutoRemediationIamRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "ec2.amazonaws.com"
+                - "config.amazonaws.com"
+                - "ssm.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole"
+        - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      Policies:
+        - PolicyName: "S3BlockPublicAccess"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "s3:PutBucketPublicAccessBlock"
+                  - "s3:GetBucketPublicAccessBlock"
+                Resource: "arn:aws:s3:::*"
+  AutomationPassRolePolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyName: "passAutomationRole"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action:
+              - "iam:PassRole"
+            Resource:
+              Fn::GetAtt:
+                - "AutoRemediationIamRole"
+                - "Arn"
+      Roles:
+        - Ref: "AutoRemediationIamRole"
+  compliancenotofication: 
+   Type: AWS::SNS::Topic
+   Properties: 
+     Subscription: 
+       - Endpoint: "j.adewumicsi@gmail.com"
+         Protocol: "email"
+     TopicName: !Ref TopicName    
+          
+Outputs: 
+  MyTopicArn: 
+    Description: Arn of Created SNS Topic
+    Value: !Ref compliancenotofication
+    
+Metadata: {}
+Conditions: {}
