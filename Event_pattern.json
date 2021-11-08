@@ -1,0 +1,24 @@
+{
+    "source": [
+      "aws.config"
+    ],
+    "detail-type": [
+      "Config Rules Compliance Change"
+    ],
+    "detail": {
+      "messageType": [
+        "ComplianceChangeNotification"
+      ],
+      "configRuleName": [
+        "s3-bucket-level-public-access-prohibited"
+      ],
+      "resourceType": [
+        "AWS::S3::Bucket"
+      ],
+      "newEvaluationResult": {
+        "complianceType": [
+          "NON_COMPLIANT"
+        ]
+      }
+    }
+  }
