@@ -16,8 +16,8 @@ Note: AWS Config is not a free service. Be sure to delete your solutions after c
 
 ## Project Solution Ideas:
 - Create aws config with rule checking for aws s3 bucket with public access in the same region with a cloudformation template (blockaccess.yml) that consist
-  - the configuration remediation to remediate the buckets
-  - the sns topic for update of  s3 bucket to be compliant
+  - The RemediationConfiguration to remediate the buckets
+  - The sns topic for update of  s3 bucket to be compliant
 - Create a Eventbridge to trigger sns when nocompliance bucket are created
 - Create S3 bucket that has public access with cloudfomation template (s3_cfn) attached.
 
