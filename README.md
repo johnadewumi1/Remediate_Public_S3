@@ -34,7 +34,7 @@ config needs to:
 1. Choose Create rule
 2. In Define Pattern, choose Event pattern.
 3. In Event Matching pattern, choose Custom pattern.
-4. In the Event pattern preview pane, copy and paste the following example event pattern:
+4. In the Event pattern preview pane, copy and paste the following example event pattern: use Event_pattern.json template
 - {
     "source": [
       "aws.config"
