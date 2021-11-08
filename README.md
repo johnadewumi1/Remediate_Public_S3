@@ -31,7 +31,7 @@ If you haven't already created an Amazon SNS topic, then follow the instructions
 
 Note: The Amazon SNS topic must be in the same Region as your AWS Config service.
 
-## Research about Amazon EventBridge, below is the procedure .
+## Amazon EventBridge with SNS Topic setup, below is the procedure .
 
 1. Choose Create rule
 2. In Define Pattern, choose Event pattern.
