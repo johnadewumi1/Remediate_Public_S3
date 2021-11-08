@@ -68,7 +68,7 @@ config needs to:
  8. Expand Configure input, and then choose Input transformer.
  9.  In the Input Path text box, copy and paste the following example path:
   
-{
+ - {
     "awsRegion": "$.detail.awsRegion",
     "resourceId": "$.detail.resourceId",
     "awsAccountId": "$.detail.awsAccountId",
@@ -80,7 +80,7 @@ config needs to:
 
 10.  In the Input Template text box, copy and paste the following template:
 
-"On <time> AWS Config rule <rule> evaluated the <resourceType> with Id <resourceId> in the account <awsAccountId> region <awsRegion> as <compliance> For more details open the AWS Config console at https://console.aws.amazon.com/config/home?region=<awsRegion>#/timeline/<resourceType>/<resourceId>/configuration"
+- "On <time> AWS Config rule <rule> evaluated the <resourceType> with Id <resourceId> in the account <awsAccountId> region <awsRegion> as <compliance> For more details open the AWS Config console at https://console.aws.amazon.com/config/home?region=<awsRegion>#/timeline/<resourceType>/<resourceId>/configuration"
 
   
   
