@@ -1,6 +1,6 @@
 ![image](https://github.com/johnadewumi1/Remediate_Public_S3/blob/main/images/Architecture_Diagram.png.png)
 # Project Statement
-Your Senior Management is concerned about engineers creating public accessible S3 buckets. They want you to track situations like this and if you find any, they want to remediate them using Lambda. After the remediation is complete, they want you to send a notification to the security department about which buckets were remediated.
+Your Senior Management is concerned about engineers creating public accessible S3 buckets. They want you to track situations like this and if you find any, they want to remediate them. After the remediation is complete, they want you to send a notification to the security department about which buckets were remediated.
 You determine what your Lambda function should do.
 Your solution should:
 
