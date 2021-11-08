@@ -46,6 +46,8 @@ Note: The Amazon SNS topic must be in the same Region as your AWS Config service
  6. In Select targets, choose SNS topic.
  7. In Topic, choose your SNS topic created with the cloudformation.
  8. Expand Configure input, and then choose Input transformer.
+ ![image](https://github.com/johnadewumi1/Remediate_Public_S3/blob/main/images/input_transformer.png)
+ 
  9.  In the Input Path text box, copy and paste the following example path:
   
  - {
