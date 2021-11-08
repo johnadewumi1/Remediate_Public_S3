@@ -4,7 +4,7 @@ Parameters:
   TopicName:
     Type: String
     Description:  Topic Name
-    Default: compliancenotofication
+    Default: Topic_Name
 Resources:
   ConfigRule:
     Type: "AWS::Config::ConfigRule"
@@ -81,18 +81,18 @@ Resources:
                 - "Arn"
       Roles:
         - Ref: "AutoRemediationIamRole"
-  compliancenotofication: 
+  Sns-Topic:
    Type: AWS::SNS::Topic
    Properties: 
      Subscription: 
-       - Endpoint: "j.adewumicsi@gmail.com"
+       - Endpoint: "youremail"
          Protocol: "email"
      TopicName: !Ref TopicName    
           
 Outputs: 
   MyTopicArn: 
     Description: Arn of Created SNS Topic
-    Value: !Ref compliancenotofication
+    Value: !Ref Sns-Topic
     
 Metadata: {}
 Conditions: {}
