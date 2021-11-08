@@ -35,6 +35,7 @@ config needs to:
 2. In Define Pattern, choose Event pattern.
 3. In Event Matching pattern, choose Custom pattern.
 4. In the Event pattern preview pane, copy and paste the following example event pattern: use Event_pattern.json template
+
 ![image](https://github.com/johnadewumi1/Remediate_Public_S3/blob/main/images/event_pattern.png)
   
   The above is used to trigger the topic form event bridge wehenever we have a non compliant bucket 
