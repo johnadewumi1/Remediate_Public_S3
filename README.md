@@ -27,9 +27,11 @@ config needs to:
     - Check for non-compliant s3 buckets
     - Remediate the s3 bucket by making it private
 
+## If you haven't already created an Amazon SNS topic, then follow the instructions for Getting started with Amazon SNS. https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html.
 
+Note: The Amazon SNS topic must be in the same Region as your AWS Config service.
 
-## Research about Amazon EventBridge custom event .
+## Research about Amazon EventBridge, below is the procedure .
 
 1. Choose Create rule
 2. In Define Pattern, choose Event pattern.
